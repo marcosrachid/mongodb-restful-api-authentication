@@ -1,0 +1,6 @@
+#ignore eclipse files
+*.versionsBackup
+.project
+.classpath
+.settings
+**/target/**

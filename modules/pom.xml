@@ -1,0 +1,153 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- project coordinates -->
+	<groupId>com.mongo</groupId>
+	<artifactId>mongodb-restful-api-authentication</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<app.encoding>UTF-8</app.encoding>
+		<java.version.enforce>1.8</java.version.enforce>
+		<spring-boot-version>2.0.5.RELEASE</spring-boot-version>
+		<metrics-spring.version>3.1.3</metrics-spring.version>
+	        <dropwizard-metrics.version>3.2.2</dropwizard-metrics.version>
+		<validation-api.version>1.1.0.Final</validation-api.version>
+		<jhipster.server.version>1.1.2</jhipster.server.version>
+	</properties>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.5.RELEASE</version>
+		<relativePath />
+	</parent>
+
+	<name>Mongo - Application</name>
+
+	<prerequisites>
+		<maven>3.3.9</maven>
+	</prerequisites>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>domain</module>
+				<module>service</module>
+				<module>oauth2</module>
+				<module>rest</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<modules>
+				<module>domain</module>
+				<module>service</module>
+				<module>oauth2</module>
+				<module>rest</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>functest</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<modules>
+				<module>domain</module>
+				<module>service</module>
+				<module>oauth2</module>
+				<module>rest</module>
+				<module>functest</module>
+			</modules>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${app.encoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>enforce-versions</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireJavaVersion>
+									<message>[ERRO] Incompatible Java version, use Java SDK ${java.version}.x</message>
+									<version>${java.version.enforce}</version>
+								</requireJavaVersion>
+								<requireMavenVersion>
+									<message>[ERRO] Incompatible Maven version, use Maven 3.3.9 or superior</message>
+									<version>[3.3.9,)</version>
+								</requireMavenVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<organization>
+		<name>UPGRADE</name>
+	</organization>
+
+	<developers>
+		<developer>
+			<id>marcosrachid</id>
+			<name>Marcos Filipe Lopes Rachid de Oliveira</name>
+			<email>marcosrachid@gmail.com</email>
+			<organization>UPGRADE</organization>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>-3</timezone>
+		</developer>
+	</developers>
+	<repositories>
+		<repository>
+			<id>spring-releases</id>
+			<url>https://repo.spring.io/libs-release</url>
+		</repository>
+		<repository>
+		        <id>spring-milestones</id>
+		        <name>Spring Milestones</name>
+		        <url>https://repo.spring.io/milestone</url>
+		        <snapshots>
+		            <enabled>false</enabled>
+		        </snapshots>
+    		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-releases</id>
+			<url>https://repo.spring.io/libs-release</url>
+		</pluginRepository>
+	</pluginRepositories>
+</project>
