@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mongo.domain.dto.ResponseDTO;
-import com.up.handler.ReservationHandler;
-import com.up.utils.UserUtils;
+import com.mongo.handler.ReservationHandler;
+import com.mongo.utils.UserUtils;
 
 @RestController
 @RequestMapping("/api")

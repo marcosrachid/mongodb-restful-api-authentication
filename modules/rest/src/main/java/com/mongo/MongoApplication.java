@@ -45,7 +45,7 @@ import com.mongo.domain.constants.Role;
  *
  */
 @SpringBootApplication
-@ComponentScan(basePackages = "com.up")
+@ComponentScan(basePackages = "com.mongo")
 @PropertySources(value = { @PropertySource("classpath:mongo/application.properties") })
 public class MongoApplication {
 

@@ -34,7 +34,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 
 import com.mongo.domain.dto.ErrorDTO;
 import com.mongo.domain.dto.ResponseDTO;
-import com.up.service.exception.BusinessException;
+import com.mongo.service.exception.BusinessException;
 
 /**
  * 

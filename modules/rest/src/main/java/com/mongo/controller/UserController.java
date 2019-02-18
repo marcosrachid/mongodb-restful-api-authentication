@@ -26,9 +26,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mongo.domain.dto.ResponseDTO;
 import com.mongo.domain.dto.UserDTO;
 import com.mongo.domain.dto.request.UserPasswordDTORequest;
-import com.up.handler.UserHandler;
-import com.up.service.exception.BusinessException;
-import com.up.utils.UserUtils;
+import com.mongo.handler.UserHandler;
+import com.mongo.service.exception.BusinessException;
+import com.mongo.utils.UserUtils;
 
 @RestController
 @RequestMapping("/api")
